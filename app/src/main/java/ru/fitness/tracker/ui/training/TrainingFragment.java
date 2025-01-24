@@ -1,31 +1,28 @@
-package ru.fitness.tracker.ui.home;
+package ru.fitness.tracker.ui.training;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.fitness.tracker.databinding.FragmentHomeBinding;
+import ru.fitness.tracker.databinding.FragmentTrainingBinding;
 
-public class HomeFragment extends Fragment {
+public class TrainingFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentTrainingBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        TrainingViewModel trainingViewModel =
+                new ViewModelProvider(this).get(TrainingViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentTrainingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
