@@ -1,4 +1,4 @@
-package ru.fitness.tracker.ui.home;
+package ru.fitness.tracker.ui.exercises;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.fitness.tracker.databinding.FragmentHomeBinding;
+import ru.fitness.tracker.databinding.FragmentExercisesBinding;
 
-public class HomeFragment extends Fragment {
+public class ExercisesFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentExercisesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        ExercisesViewModel exercisesViewModel =
+                new ViewModelProvider(this).get(ExercisesViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentExercisesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
